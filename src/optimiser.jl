@@ -1,0 +1,8 @@
+best_so_far, prev_sample)
+opt = Opt(:GN_DIRECT_L, 1)
+f(x, grad) = expected_loss(x, grad, best_so_far)
+min_objective!(opt, f)
+upper_bounds!(opt, [15])
+lower_bounds!(opt, [-15])
+maxtime!(opt, 1)
+optimize(opt, [(rand() -0.5) * 10])
